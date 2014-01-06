@@ -168,5 +168,5 @@ You can access the following characterKeys
 
 ### Information taken from
 
-[https://github.com/ubaransel/lgcommander](https://github.com/ubaransel/lgcommander)
-[http://developer.lge.com/resource/tv/RetrieveDocDevLibrary.dev](http://developer.lge.com/resource/tv/RetrieveDocDevLibrary.dev)
+* [https://github.com/ubaransel/lgcommander](https://github.com/ubaransel/lgcommander)
+* [http://developer.lge.com/resource/tv/RetrieveDocDevLibrary.dev](http://developer.lge.com/resource/tv/RetrieveDocDevLibrary.dev)
