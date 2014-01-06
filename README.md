@@ -1,4 +1,4 @@
-LG Smart TV Remote Control - NodeJS Client
+LG Smart TV Remote Control - NodeJS
 ====================
 
 Control your LG Smart TV with NodeJS, it's so simple!
@@ -166,7 +166,7 @@ You can access the following characterKeys
     KEY_IDX_YELLOW                  characterKey=32
 
 
-### Information taken from
+## Thanks To
 
 * [https://github.com/ubaransel/lgcommander](https://github.com/ubaransel/lgcommander)
 * [http://developer.lge.com/resource/tv/RetrieveDocDevLibrary.dev](http://developer.lge.com/resource/tv/RetrieveDocDevLibrary.dev)
