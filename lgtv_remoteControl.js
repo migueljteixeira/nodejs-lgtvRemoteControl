@@ -6,50 +6,41 @@ var rl = readline.createInterface({
 	output: process.stdout
 });
 
+requests.requestPairingKey(function (callback) {
+	// if the request was successful, continue
+	if(callback)
+		promptForPairingKey();
+});
+
 // Prompt user for pairing key
-function promptForPairingKey(callback){
-	rl.question("> Insert Pairing Key: ", function (answer) {
-		callback(answer);
+function promptForPairingKey() {
+	rl.question("> Insert Pairing Key: ", function (pairingKey) {
+
+		requests.requestPairing(pairingKey, function (pairingSucceeded) {
+
+			// if pairing was successful, continue
+			if(pairingSucceeded)
+				promptForSessionID();
+		});
+
 	});
 }
 
 // Prompt user for session ID
-function promptForSessionID(callback){
-	rl.question("\n> Insert Session ID (shown above): ", function (answer) {
-		callback(answer);
+function promptForSessionID() {
+	rl.question("\n> Insert Session ID (shown above): ", function (sessionID) {
+
+		promptForCommandKey(sessionID);
 	});
 }
 
 // Prompt user for commandKey
-function promptForCommandKey(callback){
-	rl.question("> Insert Command Key: ", function (answer) {
-		callback(answer);
-		rl.close();
+function promptForCommandKey(sessionID) {
+	rl.question("> Insert Command Key: ", function (commandKey) {
+		
+		requests.requestCommandKey(sessionID, commandKey);
+		console.log('> OK.\n')
+
+		promptForCommandKey(sessionID);
 	});
 }
-
-
-requests.requestPairingKey(function (callback){
-
-	// if the request was successful, continue
-	if(callback){
-		promptForPairingKey(function (pairingKey){
-
-			requests.requestPairing(pairingKey, function (pairingSucceeded){
-
-				// if pairing was successful, continue
-				if(pairingSucceeded){
-					promptForSessionID(function (sessionID){
-
-						promptForCommandKey(function (commandKey){
-
-							requests.requestCommandKey(sessionID, commandKey);
-						});
-					});
-				}
-
-			});
-		});
-	}
-
-});
